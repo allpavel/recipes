@@ -17,9 +17,9 @@ export const removeRecipe = (recipe) => {
 export const favoriteRecipesReducer = (favoriteRecipes = initialState, action) => {
     switch (action.type) {
         case "favoriteRecipes/addRecipe":
-            return [...favoriteRecipes, action.payload];
+            return [action.payload, ...favoriteRecipes];
         case "favoriteRecipes/removeRecipe":
-            return favoriteRecipes.filter(recipe => recipe.id !== action.payload.id);
+            return favoriteRecipes.filter((recipe) => parseInt(recipe.id) !== parseInt(action.payload.id));
         default:
             return favoriteRecipes;
     }

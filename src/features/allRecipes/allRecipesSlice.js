@@ -36,7 +36,7 @@ export const allRecipesReducer = (allRecipes = initialState, action) => {
         case "allRecipes/loadData":
             return action.payload;
         case "favoriteRecipes/addRecipe":
-            return allRecipes.filter(recipe => recipe.id !== action.payload.id);
+            return allRecipes.filter(recipe => parseInt(recipe.id) !== parseInt(action.payload.id));
         case "favoriteRecipes/removeRecipe":
             return [action.payload, ...allRecipes];
         default:

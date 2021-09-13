@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Recipe = ({ children, recipe }) => {
+export const Recipe = ({ recipe, children }) => {
     return (
         <div key={recipe.id} className="recipe" tabIndex={0}>
             <span className="recipe-container">

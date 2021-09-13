@@ -24,7 +24,7 @@ export const AllRecipes = (props) => {
         <div className="recipes-container">
             {allRecipes.map(recipe => (
                 <Recipe recipe={recipe} key={recipe.id}>
-                    <Button onClickHandler={onAddRecipeHandler} icon={favoriteIcon}>
+                    <Button onClickHandler={() => onAddRecipeHandler(recipe)} icon={favoriteIcon}>
                         Add to Favorite
                     </Button>
                 </Recipe>

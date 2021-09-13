@@ -16,7 +16,7 @@ export const FavoriteRecipes = (props) => {
         <div className="recipes-container">
             {favoriteRecipes.map(recipe => (
                 <Recipe recipe={recipe} key={recipe.id}>
-                    <Button onClickHandler={onRemoveRecipeHandler} icon={removeIcon}>
+                    <Button onClickHandler={() => onRemoveRecipeHandler(recipe)} icon={removeIcon}>
                         Remove
                     </Button>
                 </Recipe>
