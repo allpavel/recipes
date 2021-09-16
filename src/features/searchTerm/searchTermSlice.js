@@ -22,4 +22,6 @@ export const searchTermReducer = (searchTerm = initialState, action) => {
         default:
             return searchTerm;
     }
-}
+};
+
+export const selectSearchTerm = (state) => state.searchTerm;

@@ -1,11 +1,13 @@
 import React from 'react';
-import { setSearchTerm, clearSearchTerm } from './searchTermSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchTerm, clearSearchTerm, selectSearchTerm } from './searchTermSlice';
 
 const searchIcon = "./img/search.svg";
 const clearIcon = "./img/clear.svg";
 
-export const SearchTerm = (props) => {
-    const { searchTerm, dispatch } = props;
+export const SearchTerm = () => {
+    const searchTerm = useSelector(selectSearchTerm);
+    const dispatch = useDispatch();
 
     const onSearchTermHandler = (event) => {
         dispatch(setSearchTerm(event.target.value));
