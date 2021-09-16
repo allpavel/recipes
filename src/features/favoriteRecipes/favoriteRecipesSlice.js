@@ -1,3 +1,5 @@
+import { selectSearchTerm } from "../searchTerm/searchTermSlice";
+
 const initialState = [];
 
 export const addRecipe = (recipe) => {
@@ -23,4 +25,12 @@ export const favoriteRecipesReducer = (favoriteRecipes = initialState, action) =
         default:
             return favoriteRecipes;
     }
-}
+};
+
+export const selectFavoriteRecipes = state => state.favoriteRecipes;
+
+export const selectFilteredFavoriteRecipes = state => {
+    const favoriteRecipes = selectFavoriteRecipes(state);
+    const searchTerm = selectSearchTerm(state);
+    return favoriteRecipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm.toLowerCase()));
+};

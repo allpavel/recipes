@@ -1,3 +1,5 @@
+import { selectSearchTerm } from "../searchTerm/searchTermSlice";
+
 const allRecipesData = [
     {
         id: 0, name: "blini", img: "./img/blini.jpg"
@@ -42,4 +44,13 @@ export const allRecipesReducer = (allRecipes = initialState, action) => {
         default:
             return allRecipes;
     }
+};
+
+export const selectAllRecipes = state => state.allRecipes;
+
+export const selectFilteredAllRecipes = state => {
+    const allRecipes = selectAllRecipes(state);
+    const searchTerm = selectSearchTerm(state);
+
+    return allRecipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm.toLowerCase()));
 }
