@@ -13,7 +13,7 @@ export const clearSearchTerm = () => {
     };
 };
 
-export const searchTermReducer = (searchTerm = initialState, action) => {
+const searchTermReducer = (searchTerm = initialState, action) => {
     switch (action.type) {
         case "searchTerm/setSearchTerm":
             return action.payload;
@@ -25,3 +25,4 @@ export const searchTermReducer = (searchTerm = initialState, action) => {
 };
 
 export const selectSearchTerm = (state) => state.searchTerm;
+export default searchTermReducer;
